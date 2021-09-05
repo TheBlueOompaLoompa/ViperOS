@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install mtools
+      run: apt-get install mtools
     - uses: actions/checkout@v2
     - name: build
       run: cd gnu-efi && make && cd .. && cd kernel && make && make buildimg
