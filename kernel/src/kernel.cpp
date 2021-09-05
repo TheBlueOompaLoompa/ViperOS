@@ -32,9 +32,11 @@ extern "C" void _start(BootInfo* bootInfo){
 
     renderer.Color = 0x000000;
 
-    for(unsigned long x = 0L; x < (renderer.TargetFramebuffer->Width/10); x++){
+    for(unsigned long x = 0L; x < (renderer.TargetFramebuffer->Width/10)+1; x++){
         for(unsigned long i = 0L; i < 10; i++) {
-            renderer.Rect(((x*10L)+i), 0, 1, renderer.TargetFramebuffer->Height);
+            if((x*10L)+i < renderer.TargetFramebuffer->Width+9){
+                renderer.Rect(((x*10L)+i)-10, 0, 1, renderer.TargetFramebuffer->Height);
+            }
         }
         renderer.Color = colors[x%6];
     }
