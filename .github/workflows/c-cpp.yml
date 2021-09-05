@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Install mtools
-      run: apt-get install mtools
+      run: sudo apt-get install mtools
     - uses: actions/checkout@v2
     - name: build
       run: cd gnu-efi && make && cd .. && cd kernel && make && make buildimg
